@@ -5,14 +5,20 @@
 #n = 126 % 45
 #m = 45 % n
 #n = n % m
+
 L=[]
-def GCD(a,b):
+max = input("max number : ")
+min = input("min number : ")
+
+def GCD(a, b):
     a = int(a)
     b = int(b)
-    n = a % b
-    while n > 0:
-        n = b % n
-        L.append(n)
-    print(f"GCD of : {a} , {b} = {(L[-2])}")
 
-GCD(input("max number : "),input("min number : "))
+    while b > 0:
+        L.append(b)
+        n = a % b
+        a = b
+        b = n
+    return print(f"GCD of : {max} , {min} = {(L[-1])}")
+
+GCD(max,min)
